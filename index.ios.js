@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -24,22 +18,39 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Hello!!!</Text>
         <Button
-          onPress={() => navigate('Chat')}
-          title='Chat with Lucy'
+          onPress={() => navigate('One')}
+          title='Screen One'
+        />
+        <Button
+          onPress={() => navigate('Two')}
+          title='Screen Two'
         />
       </View>
     )
   }
 }
 
-class ChatScreen extends React.Component {
+class ScreenOne extends React.Component {
   static navigationOptions = {
-    title: 'Chat with Lucy'
+    title: 'One'
   } 
   render() {
     return (
       <View>
-        <Text>Chat with Lucy!</Text>
+        <Text>Screen 1</Text>
+      </View>
+    )
+  }
+}
+
+class ScreenTwo extends React.Component {
+  static navigationOptions = {
+    title: 'Two'
+  } 
+  render() {
+    return (
+      <View>
+        <Text>Screen 2</Text>
       </View>
     )
   }
@@ -47,7 +58,8 @@ class ChatScreen extends React.Component {
 
 const SimpleApp = StackNavigator({
   Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen }
+  One: { screen: ScreenOne },
+  Two: { screen: ScreenTwo }
 })
 
 AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
